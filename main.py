@@ -1,9 +1,10 @@
-from obtenciones import obtener_url, obtener_ruta_guardado, obtener_video
-from utilidades_video import seleccionar_opcion_formato, descargar_video, procesar_video
+from urlNavegador import obtener_url_youtube
+from obtenciones import obtener_ruta_guardado, obtener_video
+from utilidades_video import seleccionar_opcion_formato, procesar_video
 
 def main():
-    url = obtener_url()
-    video = obtener_video(url)
+    link_video = obtener_url_youtube()
+    video = obtener_video(link_video)
 
     if video:
         ruta_guardado = obtener_ruta_guardado()

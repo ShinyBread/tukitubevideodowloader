@@ -1,9 +1,5 @@
 from pytube import YouTube
 
-def obtener_url():
-    url = input("URL del video: ")
-    return url
-
 def obtener_ruta_guardado():
     ruta_guardado = input("Donde lo vas a guardar?: ")
     return ruta_guardado
