@@ -34,7 +34,7 @@ def descargar_video(video_stream, ruta_guardado):
         print("<<< Error >>>", str(e))
 
 def procesar_video(video, ruta_guardado):
-    streams = video.streams.filter(progressive=True, file_extension="mp4")
+    streams = video.streams.filter(adaptive=True, file_extension="mp4")
     opcion_formato = seleccionar_opcion_formato(streams)
 
     if 1 <= opcion_formato <= len(streams):
