@@ -1,6 +1,6 @@
 from urlNavegador import obtener_url_youtube
 from obtenciones import obtener_ruta_guardado, obtener_video
-from utilidades_video import seleccionar_opcion_formato, procesar_video
+from utilidades_video import procesar_video
 
 def main():
     link_video = obtener_url_youtube()

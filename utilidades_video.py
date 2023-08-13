@@ -5,8 +5,8 @@ from moviepy.editor import VideoFileClip, AudioFileClip
 def seleccionar_opcion_formato(streams, formato):
     print(f"Seleccione el formato {formato} para descargar:")
 
-    for idx, stream in enumerate(streams, start=1):
-        print(f"{idx}. {stream.resolution} - {stream.mime_type}")
+    for indexador, stream in enumerate(streams, start=1):
+        print(f"{indexador}. {stream.resolution} - {stream.mime_type}")
 
     opcion = int(input("Ingresa el formato: "))
     return opcion
