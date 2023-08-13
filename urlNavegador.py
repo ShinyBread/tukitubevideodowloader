@@ -4,7 +4,7 @@ from shutil import copyfile
 
 def obtener_url_youtube():
     app_data_path = os.environ['LOCALAPPDATA']
-    edge_history_db = os.path.join(app_data_path, r'Microsoft\Edge\User Data\Default\History')
+    edge_history_db = os.path.join(app_data_path, r'Microsoft\Edge\User Data\Default\History') #cambiar ruta de navegador
     temp_history_db = os.path.join(os.path.dirname(__file__), 'temp_history.db')
     copyfile(edge_history_db, temp_history_db)
 

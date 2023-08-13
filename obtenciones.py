@@ -9,5 +9,5 @@ def obtener_video(url):
         video = YouTube(url)
         return video
     except Exception as e:
-        print("<<< Error al obtener el video >>>:", str(e))
+        print("<<< Error al obtener el video >>>", str(e))
         return None
