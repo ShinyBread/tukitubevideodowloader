@@ -8,7 +8,7 @@ def obtener_ruta_guardado():
     ruta_guardado = input("Donde lo vas a guardar?: ")
     return ruta_guardado
 
-def obtener_opcion_formato(streams):
+def seleccionar_opcion_formato(streams):
     print("Seleccione el formato para descargar:")
 
     for idx, stream in enumerate(streams, start=1):
@@ -33,20 +33,23 @@ def descargar_video(video_stream, ruta_guardado):
     except Exception as e:
         print("<<< Error >>>", str(e))
 
+def procesar_video(video, ruta_guardado):
+    streams = video.streams.filter(progressive=True, file_extension="mp4")
+    opcion_formato = seleccionar_opcion_formato(streams)
+
+    if 1 <= opcion_formato <= len(streams):
+        formato_elegido = streams[opcion_formato - 1]
+        descargar_video(formato_elegido, ruta_guardado)
+    else:
+        print("Opcion no valida!!.")
+
 def main():
     url = obtener_url()
     video = obtener_video(url)
 
     if video:
         ruta_guardado = obtener_ruta_guardado()
-        streams = video.streams.filter(progressive=True, file_extension="mp4")
-        opcion_formato = obtener_opcion_formato(streams)
-
-        if 1 <= opcion_formato <= len(streams):
-            formato_elegido = streams[opcion_formato - 1]
-            descargar_video(formato_elegido, ruta_guardado)
-        else:
-            print("Opcion no valida!!.")
+        procesar_video(video, ruta_guardado)
 
 if __name__ == "__main__":
     main()
